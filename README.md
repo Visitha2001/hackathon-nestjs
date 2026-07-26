@@ -83,6 +83,62 @@ Check out a few resources that may come in handy when working with NestJS:
 - To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
 - Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
+## Arcjet Integration Setup
+
+If you're starting from scratch, here are the commands used to set up Arcjet in this project:
+
+```bash
+# Install the Arcjet NestJS SDK and NestJS Config module
+npm install @arcjet/nest @nestjs/config
+
+# Copy the sample environment file to .env (you will need to add your actual ARCJET_KEY)
+cp .env.sample .env
+```
+
+## Arcjet CLI Usage
+
+To authenticate and use Arcjet CLI to investigate IPs:
+
+```bash
+# Log in to Arcjet via browser
+npx @arcjet/cli auth login
+
+# Print your current token (to use in MCP config or .env)
+npx @arcjet/cli auth token
+
+# List your teams to get the team ID
+npx @arcjet/cli teams list
+
+# List your sites for a specific team
+npx @arcjet/cli sites list --team-id <team-id>
+
+# Investigate an IP address on your site
+npx @arcjet/cli analyze ip --ip 8.8.8.8 --site-id <site-id>
+```
+
+## MCP Authentication in Antigravity IDE
+
+To authenticate with MCP servers in Antigravity IDE (such as the Arcjet MCP):
+
+1. open the agent panel > MCP Servers > Manage MCP Servers > Add server
+2. view row config file.
+3. add this under mcpservers
+
+```bash
+{
+  "mcpServers": {
+    "arcjet": {
+      "serverUrl": "https://api.arcjet.com/mcp"
+    },
+  ... more....
+  }
+}
+```
+
+4. save and refresh the mange MCP server window.
+5. click on autheticate and scroll to the bottum of the new opened window.
+6. then under arcjet click auth and refresh the previous manage MCP window.
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
