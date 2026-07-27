@@ -4,6 +4,9 @@ import { APP_GUARD } from '@nestjs/core';
 import { ArcjetModule, shield, tokenBucket, ArcjetGuard } from '@arcjet/nest';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { PrismaModule } from './lib/database/prisma.module';
+
+import 'dotenv/config';
 
 @Module({
   imports: [
@@ -22,6 +25,7 @@ import { AppService } from './app.service';
         }),
       ],
     }),
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [

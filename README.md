@@ -95,6 +95,16 @@ npm install @arcjet/nest @nestjs/config
 cp .env.sample .env
 ```
 
+## Prisma Setup
+
+If you need to recreate the Prisma module and service structure, the following commands were used:
+
+```bash
+# Generate the global Prisma module and service
+nest g module lib/database/prisma --flat
+nest g service lib/database/prisma --flat
+```
+
 ## Arcjet CLI Usage
 
 To authenticate and use Arcjet CLI to investigate IPs:
@@ -118,25 +128,33 @@ npx @arcjet/cli analyze ip --ip 8.8.8.8 --site-id <site-id>
 
 ## MCP Authentication in Antigravity IDE
 
-To authenticate with MCP servers in Antigravity IDE (such as the Arcjet MCP):
+To authenticate with MCP servers in Antigravity IDE (such as Arcjet or Prisma):
 
 1. open the agent panel > MCP Servers > Manage MCP Servers > Add server
-2. view row config file.
-3. add this under mcpservers
+2. view raw config file.
+3. add this under mcpservers:
 
-```bash
+```json
 {
   "mcpServers": {
     "arcjet": {
       "serverUrl": "https://api.arcjet.com/mcp"
     },
-  ... more....
+
+    "Prisma": {
+      "command": "npx",
+      "args": ["-y", "prisma", "mcp"],
+      "env": {
+        "PRISMA_TELEMETRY_INFORMATION": "true",
+        "PRISMA_API_KEY": "paste_your_api_key_here"
+      }
+    }
   }
 }
 ```
 
-4. save and refresh the mange MCP server window.
-5. click on autheticate and scroll to the bottum of the new opened window.
+4. save and refresh the manage MCP server window.
+5. click on authenticate and scroll to the bottom of the newly opened window.
 6. then under arcjet click auth and refresh the previous manage MCP window.
 
 ## Support
