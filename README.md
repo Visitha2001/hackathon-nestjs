@@ -95,6 +95,16 @@ npm install @arcjet/nest @nestjs/config
 cp .env.sample .env
 ```
 
+## Prisma Setup
+
+If you need to recreate the Prisma module and service structure, the following commands were used:
+
+```bash
+# Generate the global Prisma module and service
+nest g module lib/database/prisma --flat
+nest g service lib/database/prisma --flat
+```
+
 ## Arcjet CLI Usage
 
 To authenticate and use Arcjet CLI to investigate IPs:
