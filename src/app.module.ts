@@ -22,7 +22,7 @@ import 'dotenv/config';
         tokenBucket({
           mode: 'LIVE',
           refillRate: 5,
-          interval: 10,
+          interval: '10s',
           capacity: 10,
         }),
       ],
