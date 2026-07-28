@@ -157,6 +157,12 @@ To authenticate with MCP servers in Antigravity IDE (such as Arcjet or Prisma):
 5. click on authenticate and scroll to the bottom of the newly opened window.
 6. then under arcjet click auth and refresh the previous manage MCP window.
 
+# get better auth secret key
+
+```bash
+npx @better-auth/cli@latest secret
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).

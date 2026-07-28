@@ -5,6 +5,7 @@ import { ArcjetModule, shield, tokenBucket, ArcjetGuard } from '@arcjet/nest';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './lib/database/prisma.module';
+import { AuthModule } from './lib/auth/auth.module';
 
 import 'dotenv/config';
 
@@ -26,6 +27,7 @@ import 'dotenv/config';
       ],
     }),
     PrismaModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [
