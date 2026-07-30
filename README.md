@@ -95,6 +95,15 @@ npm install @arcjet/nest @nestjs/config
 cp .env.sample .env
 ```
 
+## Feature Generation
+
+To scaffold the Hackathon feature (creating its module, controller, and service files):
+
+```bash
+nest g resource module/hackathon
+```
+This command uses the NestJS CLI (`nest generate resource`) to automatically create the complete boilerplate for a REST API feature without CRUD entry points. It wires the new module into the root `AppModule` and creates testing files automatically.
+
 ## Prisma Setup
 
 If you need to recreate the Prisma module and service structure, the following commands were used:
